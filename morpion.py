@@ -35,6 +35,7 @@ def nul(tab):
         return False
     else:
         return True
+    #IA 
 def IA(tab, joueur):
     nbHasard =  random.randint(1,9) #Un numéro au hasard
     return nbHasard
