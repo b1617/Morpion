@@ -39,23 +39,19 @@ def nul(tab):
 def IA(tab, joueur):
     if tab[5] == " ":
         nbHasard = 5
-    elif tab[4] == " ":
-        nbHasard = 4
-    elif tab[1] == " ":
-        nbHasard = 1
     else:
         nbHasard =  random.randint(1,9) #Un numéro au hasard
-
-    if tab[5] == "x" and tab[1] == "x":
-        nbHasard =9
-    if tab[5] == "x" and tab[3] == "x":
-        nbHasard =7
-    if tab[5] == "x" and tab[9] == "x":
-        nbHasard =1
-    if tab[5] == "x" and tab[7] == "x":
-        nbHasard =3
+        return nbHasard  
+    for i in range(1,10):
+        if tab[i] == " ":
+            tab[i] = joueur
+            if resultat(tab , joueur):
+                return i
+            else:
+                tab[i] = " "
+    return i 
     
-    return nbHasard
+   
 
     #Main
 while True:
@@ -72,7 +68,7 @@ while True:
         
             if nul(tab):
                 jeu()
-                print("nul")
+               #  print("Nul")
                 break
     else:
         print ("C'est déjà pris")
@@ -90,7 +86,7 @@ while True:
         jeu()
     
     if nul(tab):
-        jeu()
+      #  jeu()
         print("Nul")
         break
 
