@@ -76,29 +76,7 @@ while True:
         print("Nul")
         break
 
-    
-######################################################
-    """
-    jeu()
-    
-    nb = ia(tab,"o")
-    if tab[nb] == " ":
-        tab[nb] = "o"
-    else:
-        print ("C'est déjà pris")
-        time.sleep(1)
-   
-    if resultat(tab,"o"):
-        jeu()
-        print ("Perdu")
-        break
-        jeu()
-
-    if nul(tab):
-        jeu()
-        print("nul")
-
-   """
+  
            
             
            
