@@ -42,8 +42,17 @@ def IA(tab, joueur):
             tab[i] = joueur
             if resultat(tab,joueur):
                 return i
+                break
+                tab[i] = "x"
+            
+            elif resultat(tab , joueur):
+                tab[i] = "o"
+                return i
             else:
                 tab[i] = " "
+                
+        
+             
     
     if tab[5] == " ":
         return 5
@@ -73,7 +82,6 @@ while True:
         
             if nul(tab):
                 jeu()
-               #  print("Nul")
                 break
     else:
         print ("C'est déjà pris")
@@ -83,15 +91,14 @@ while True:
         jeu()
         print ("Gagné")
         break
-        jeu()
+        
+        
     if resultat(tab,"o"):
-        jeu()
         print ("Perdu")
         break
-        jeu()
+        
     
     if nul(tab):
-      #  jeu()
         print("Nul")
         break
 
