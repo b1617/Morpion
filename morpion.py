@@ -37,19 +37,24 @@ def nul(tab):
         return True
     #IA 
 def IA(tab, joueur):
-    if tab[5] == " ":
-        nbHasard = 5
-    else:
-        nbHasard =  random.randint(1,9) #Un numéro au hasard
-        return nbHasard  
-    for i in range(1,10):
+    for i in range (1,10):
         if tab[i] == " ":
             tab[i] = joueur
-            if resultat(tab , joueur):
+            if resultat(tab,joueur):
                 return i
             else:
                 tab[i] = " "
-    return i 
+    
+    if tab[5] == " ":
+        return 5
+    while True:
+        nbHasard =  random.randint(1,9) #Un numéro au hasard
+        return nbHasard
+        break
+    return 5
+
+    
+    
     
    
 
