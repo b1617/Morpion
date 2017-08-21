@@ -17,7 +17,7 @@ def jeu():
     print ("----------")
     print(tab[7] , "|" , tab[8] , "|" , tab[9])
 
-def resultat(tab, joueur):
+def victoire(tab, joueur):
     if tab[1] == joueur and tab[2] == joueur and tab[3] == joueur or \
        tab[4] == joueur and tab[5] == joueur and tab[6] == joueur or \
        tab[7] == joueur and tab[8] == joueur and tab[9] == joueur or \
@@ -37,36 +37,48 @@ def nul(tab):
         return True
     #IA 
 def IA(tab, joueur):
+    if tab[5] == " " :
+        return 5            
     for i in range (1,10):
         if tab[i] == " ":
             tab[i] = joueur
-            if resultat(tab,joueur):
+            if victoire(tab,joueur):
+                
+                print(" verification : gagnant")
                 return i
                 break
-                tab[i] = "x"
-            
-            elif resultat(tab , joueur):
+            else:
+                  tab[i] = " "
+        if tab[i] == " ":
+            tab[i] = "x"
+            if victoire (tab,"x"):
                 tab[i] = "o"
+                print ("verification : perdant")
+    
                 return i
+                break
             else:
                 tab[i] = " "
-                
-        
-             
-    
-    if tab[5] == " ":
-        return 5
-    while True:
-        nbHasard =  random.randint(1,9) #Un numéro au hasard
+        else:
+            if tab[i] == " ":
+                while True:
+                    nb = random.randint(1,10)
+                    if tab[nb] == " ":
+                        print("hasard")
+                        return nb
+                        break
+    """
+    while gagnant == True:
+        nbHasard = random.randint(1,10)
+        print ("hasard")
         return nbHasard
-        break
-    return 5
-
-    
-    
-    
+        break          
+    """
    
-
+    
+    
+        
+    
     #Main
 while True:
     jeu()
@@ -78,7 +90,7 @@ while True:
             nb2 = IA(tab,"o")
             if tab[nb2] == " ":
                 tab[nb2] = "o"
-                break
+            break
         
             if nul(tab):
                 jeu()
@@ -87,14 +99,15 @@ while True:
         print ("C'est déjà pris")
         
        
-    if resultat(tab,"x"):
+    if victoire(tab,"x"):
         jeu()
-        print ("Gagné")
+        print ("Victoire")
         break
         
         
-    if resultat(tab,"o"):
-        print ("Perdu")
+    if victoire(tab,"o"):
+        jeu()
+        print ("Défaite")
         break
         
     
