@@ -59,6 +59,7 @@ def IA(tab, joueur):
                 break
             else:
                 tab[i] = " "
+                """
         else:
             if tab[i] == " ":
                 while True:
@@ -67,7 +68,19 @@ def IA(tab, joueur):
                         print("hasard")
                         return nb
                         break
-  
+                        """
+    
+    while True:
+        nbHasard = random.randint(1,10)
+        print ("hasard")
+        return nbHasard
+                  
+    
+   
+    
+    
+        
+    
     #Main
 while True:
     jeu()
@@ -101,6 +114,7 @@ while True:
         
     
     if nul(tab):
+        jeu()
         print("Nul")
         break
 
