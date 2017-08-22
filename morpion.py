@@ -7,7 +7,7 @@ import time
 tab = ["",
        " "," "," ",
        " "," "," ",
-       " "," "," ",]
+       " "," "," "]
 
     #Méthode
 def jeu():
@@ -35,6 +35,8 @@ def nul(tab):
         return False
     else:
         return True
+
+
     #IA 
 def IA(tab, joueur):
     if tab[5] == " " :
@@ -59,17 +61,7 @@ def IA(tab, joueur):
                 break
             else:
                 tab[i] = " "
-                """
-        else:
-            if tab[i] == " ":
-                while True:
-                    nb = random.randint(1,10)
-                    if tab[nb] == " ":
-                        print("hasard")
-                        return nb
-                        break
-                        """
-    
+               
     while True:
         nbHasard = random.randint(1,10)
         print ("hasard")
@@ -77,8 +69,13 @@ def IA(tab, joueur):
                   
     
    
+"""  
+  #reset
+def reset(rejouer):
     
-    
+    if rejouer == "O":
+        tab = [""," "," "," "," "," "," "," "," "," "]
+"""              
         
     
     #Main
@@ -104,22 +101,35 @@ while True:
     if victoire(tab,"x"):
         jeu()
         print ("Victoire")
-        break
+        rejouer = str(input("une nouvelle partie ? (O/N) : ").upper())
+        if rejouer == "O":
+             tab = [""," "," "," "," "," "," "," "," "," "]
+             continue  
+        else:
+            break
         
         
     if victoire(tab,"o"):
         jeu()
         print ("Défaite")
-        break
+        rejouer = str(input("une nouvelle partie ? (O/N) : ").upper())
+        if rejouer == "O":
+             tab = [""," "," "," "," "," "," "," "," "," "]
+             continue 
+        else:
+            break
         
     
     if nul(tab):
         jeu()
         print("Nul")
-        break
+        rejouer = str(input("une nouvelle partie ? (O/N) : ").upper())
+        if rejouer == "O":
+             tab = [""," "," "," "," "," "," "," "," "," "]
+             continue
+        else:
+            break
 
   
            
-            
-           
-   
+    
